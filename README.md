@@ -13,16 +13,23 @@ npm install --save usethrottle
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useThrottle } from 'usethrottle'
 
-import { useMyHook } from 'usethrottle'
-
-const Example = () => {
-  const example = useMyHook()
+const App = () => {
+  let [example, setExample] = useState(0)
+  const throttled = useThrottle((x) => setExample(x), 1000)
+  useEffect(() => {
+    throttled(example + 1)
+  }, [example])
   return (
-    <div>{example}</div>
+    <div>
+      {example}
+    </div>
   )
 }
+export default App
+
 ```
 
 ## License

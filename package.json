@@ -1,5 +1,5 @@
 {
-  "name": "usethrottle",
+  "name": "@slynch13/usethrottle",
   "version": "1.0.0",
   "description": "React hook for to throttle functions",
   "author": "slynch13",

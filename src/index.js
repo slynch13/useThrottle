@@ -1,21 +1,24 @@
-import * as React from 'react'
+import { useRef, useState, useEffect, useCallback } from 'react'
 
-export const useMyHook = () => {
-  let [{
-    counter
-  }, setState] = React.useState({
-    counter: 0
-  })
+let useThrottle = (func, limit) => {
+  let [args, setArgs] = useState()
 
-  React.useEffect(() => {
-    let interval = window.setInterval(() => {
-      counter++
-      setState({counter})
-    }, 1000)
-    return () => {
-      window.clearInterval(interval)
-    }
-  }, [])
+  let throttledFunction = (...args) => {
+    // console.log(args)
+    setArgs(args || [])
+  }
 
-  return counter
+  let newRunTime = useRef(Date.now())
+  useEffect(() => {
+    if (args === undefined) return
+    let time = newRunTime.current - Date.now()
+    let timer = setTimeout(() => {
+      func(...args)
+      newRunTime.current = Date.now() + limit
+    }, time)
+    return () => clearTimeout(timer)
+  }, [func, args, limit])
+  return useCallback(throttledFunction, [])
 }
+
+export { useThrottle }
