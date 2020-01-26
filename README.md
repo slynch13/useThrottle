@@ -2,12 +2,12 @@
 
 > React hook for to throttle functions
 
-[![NPM](https://img.shields.io/npm/v/usethrottle.svg)](https://www.npmjs.com/package/usethrottle) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/@slynch13/usethrottle.svg)](https://www.npmjs.com/package/@slynch13/usethrottle) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
-npm install --save usethrottle
+npm install --save @slynch13/usethrottle
 ```
 
 ## Usage
